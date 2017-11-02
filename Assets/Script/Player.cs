@@ -26,14 +26,17 @@ public class Player : MonoBehaviour {
         offset = Camera.transform.position - transform.position;  // distance between char and camera
 
 		var magicSet = Magic [0].GetComponent<EffectSetting> ();
-		MagicSpeed = magicSet.MoveSpeed;
+		//MagicSpeed = magicSet.MoveSpeed;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 
-        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 200.0f;
-        var z = Input.GetAxis("Vertical") * Time.deltaTime * 8.0f;
+
+        float x = Input.GetAxis("Horizontal") * Time.deltaTime * 300.0f;
+        float z = Input.GetAxis("Vertical") * Time.deltaTime * 5.0f;
+
+
 
         transform.Rotate(0, x, 0);
         transform.Translate(0, 0, z);
@@ -49,7 +52,7 @@ public class Player : MonoBehaviour {
 
 	void isFire(){
 		
-		GameObject magic = Instantiate (Magic [0], transform.position, Quaternion.identity) as GameObject;
+		GameObject magic = Instantiate (Magic [0], transform.position, transform.rotation) as GameObject;
 
 	}
 

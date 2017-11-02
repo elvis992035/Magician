@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EffectSetting : MonoBehaviour {
-
+	
 	public enum EffectTypeEnum
 	{
 	   Projectile,
@@ -19,6 +19,8 @@ public class EffectSetting : MonoBehaviour {
 	   Nothing
 	};
 
+	private Player player; 
+
 	public EffectTypeEnum EffectType; 
 
 	public float ColliderRadius = 0.2f;
@@ -32,7 +34,7 @@ public class EffectSetting : MonoBehaviour {
 
 	public Vector3 MoveVector = Vector3.forward;
 
-	public float MoveSpeed = 1;
+	public float MoveSpeed = 100;
 
 	public bool IsHomeingMove;
 
@@ -55,6 +57,6 @@ public class EffectSetting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.transform.position += MoveVector;
+		transform.Translate (MoveSpeed*Time.deltaTime, 0, MoveSpeed*Time.deltaTime);
 	}
 }
