@@ -36,19 +36,11 @@ public class EffectSetting : MonoBehaviour {
 
 	public float MoveSpeed = 100;
 
-	public bool IsHomeingMove;
-
-	public float MoveDistance = 20;
-
 	public bool IsVisible = true;
 
 	public DeactivationEnum InstanceBehaviour = DeactivationEnum.Nothing;
 
-	public float DeactivateTimeDelay = 4;
 
-	public float DestroyTimeDelay = 10;
-
-	public LayerMask LayerMask = -1;
 
 	// Use this for initialization
 	void Start () {
@@ -57,6 +49,9 @@ public class EffectSetting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
 		transform.Translate (MoveSpeed*Time.deltaTime, 0, MoveSpeed*Time.deltaTime);
+
+
 	}
 }
